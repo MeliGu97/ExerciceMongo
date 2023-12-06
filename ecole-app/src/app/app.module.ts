@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { EtudiantService } from './etudiant.service';
 
 
 
@@ -12,7 +13,8 @@ import { AppRoutingModule } from './app-routing.module';
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule 
-  ]
+    HttpClientModule
+  ],
+  providers: [EtudiantService]
 })
 export class AppModule { }

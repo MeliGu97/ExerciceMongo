@@ -5,7 +5,7 @@ import { EtudiantsComponent } from './etudiants/etudiants.component';
 export const routes: Routes = [
   { path: 'etudiants', component: EtudiantsComponent },
   // Ajoutez d'autres routes si nécessaire
-  { path: '', redirectTo: '/etudiants', pathMatch: 'full' } // Redirection par défaut vers /etudiants
+  // { path: '', redirectTo: '/etudiants', pathMatch: 'full' } // Redirection par défaut vers /etudiants
 ];
 
 @NgModule({

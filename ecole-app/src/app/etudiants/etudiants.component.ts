@@ -1,11 +1,13 @@
 import { Component,OnInit } from '@angular/core';
 import { EtudiantService } from '../etudiant.service';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-etudiants',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HttpClientModule],
+  providers: [EtudiantService],
   templateUrl: './etudiants.component.html',
   styleUrl: './etudiants.component.scss'
 })
@@ -16,6 +18,7 @@ export class EtudiantsComponent implements OnInit {
  
   ngOnInit() {
     this.etudiantService.getEtudiants().subscribe(data => {
+      console.log("data", data);
       this.etudiants = data;
     });
   }
