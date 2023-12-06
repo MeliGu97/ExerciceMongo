@@ -1,42 +1,39 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+ecole-app/dist
+ecole-app/tmp
+ecole-app/out-tsc
+ecole-app/bazel-out
 
 # Node
-/node_modules
-npm-debug.log
-yarn-error.log
+ecole-app/node_modules
+back/node_modules
+ecole-app/npm-debug.log
+ecole-app/yarn-error.log
 
 # IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+ecole-app/.idea/
+ecole-app/.project
+ecole-app/.classpath
+ecole-app/.c9/
+ecole-app/*.launch
+ecole-app/.settings/
+ecole-app/*.sublime-workspace
 
 # Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+ecole-app/.vscode/*
+ecole-app/.history/*
 
 # Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+ecole-app/.angular/cache
+ecole-app/.sass-cache/
+ecole-app/connect.lock
+ecole-app/coverage
+ecole-app/libpeerconnection.log
+ecole-app/testem.log
+ecole-app/typings
 
 # System files
-.DS_Store
-Thumbs.db
+ecole-app/.DS_Store
+ecole-app/Thumbs.db
