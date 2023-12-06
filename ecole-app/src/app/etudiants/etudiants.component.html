@@ -1,0 +1,7 @@
+<p>etudiants works!</p>
+<h2>Liste des Étudiants</h2>
+<ul>
+  <li *ngFor="let etudiant of etudiants">
+    {{ etudiant.nom }} {{ etudiant.prenom }} - Classe: {{ etudiant.classe }}
+  </li>
+</ul>
