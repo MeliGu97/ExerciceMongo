@@ -22,7 +22,19 @@ app.get('/etudiants', async (req, res) => {
       console.log("etudiants",etudiants);
       res.json(etudiants);
     } catch (error) {
-      console.log("errrrrrrrrr");
+      console.log("erreur");
       res.status(500).json({ message: error.message });
     }
   });
+
+// Pour ajouter un étudiant
+app.post('/etudiants', async (req, res) => {
+  try {
+      const nouvelEtudiant = new Etudiant({ nom: req.body.nom, prenom: req.body.prenom, classe: req.body.classe });
+      console.log("nouvel etudiant :",nouvelEtudiant);
+      const etudiantEnregistre = await nouvelEtudiant.save();
+      res.status(201).json(etudiantEnregistre);
+  } catch (error) {
+      res.status(500).json({ message: error.message });
+  }
+});
