@@ -1,10 +1,14 @@
-<p>etudiants works!</p>
+<p>etudiants works !</p>
 <h2>Liste des Étudiants</h2>
+
 <ul>
   <li *ngFor="let etudiant of etudiants">
-    {{ etudiant.nom }} {{ etudiant.prenom }} - Classe: {{ etudiant.classe }}
+    {{ etudiant.nom }} {{ etudiant.prenom }} - Classe: {{ etudiant.classe }} 
+    <button (click)="supprimerEtudiantParId(etudiant._id.toString())">suppr cet étudiant</button>({{ etudiant._id }})
   </li>
 </ul>
+
+<h2>Ajouter un étudiant</h2>
 <form (ngSubmit)="ajouterEtudiant()">
   <label for="nom">Nom : </label>
   <input type="text" id="nom" [(ngModel)]="nouvelEtudiant.nom" name="nom" required>
@@ -16,4 +20,6 @@
   <input type="text" id="classe" [(ngModel)]="nouvelEtudiant.classe" name="classe" required>
   <br><br>
   <button type="submit">Ajouter un étudiant</button>
+  <br><br>
 </form>
+

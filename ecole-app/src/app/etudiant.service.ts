@@ -14,7 +14,13 @@ export class EtudiantService {
   }
 
   addEtudiant(etudiant: any): Observable<any> {
-    return this.http.post<any>('api/etudiants', etudiant);
+    return this.http.post<any>('/api/etudiants', etudiant);
+  }
+
+  deleteEtudiant(id: string): Observable<any> {
+    const url = `/api/etudiants/${id}`;
+    console.log('URL de suppression :', url);
+    return this.http.delete(url);
   }
 }
 

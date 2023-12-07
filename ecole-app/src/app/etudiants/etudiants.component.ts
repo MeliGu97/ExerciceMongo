@@ -15,15 +15,15 @@ import { FormsModule } from '@angular/forms';
 export class EtudiantsComponent implements OnInit {
   etudiants: any = [];
   nouvelEtudiant: any = {};
- 
+
   constructor(private etudiantService: EtudiantService) { }
  
   ngOnInit() {
     this.etudiantService.getEtudiants().subscribe(data => {
-      console.log("data", data);
       this.etudiants = data;
     });
   }
+
   ajouterEtudiant(): void {
     this.etudiantService.addEtudiant(this.nouvelEtudiant).subscribe({
       next: etudiantAjoute => {
@@ -36,4 +36,19 @@ export class EtudiantsComponent implements OnInit {
       }
     });
   }
+
+
+  // Dans le composant Angular
+supprimerEtudiantParId(id: string): void {
+  this.etudiantService.deleteEtudiant(id.toString()).subscribe({
+    next: () => {
+      console.log('Étudiant supprimé avec succès');
+    },
+    error: (error) => {
+      console.error('Erreur lors de la suppression de l\'étudiant', error);
+    }
+  });
+}
+
+
 }
