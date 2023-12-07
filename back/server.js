@@ -4,7 +4,8 @@ const app = express();
 const Etudiant = require('./Etudiant');
 
 // Connexion à MongoDB
-mongoose.connect('mongodb://localhost/ecole', { useNewUrlParser: true, useUnifiedTopology: true });
+// mongoose.connect('mongodb://localhost/ecole', { useNewUrlParser: true, useUnifiedTopology: true });
+  mongoose.connect('mongodb://localhost/test', { useNewUrlParser: true, useUnifiedTopology: true });
 
 // Middleware pour parser le JSON
 app.use(express.json());
@@ -29,8 +30,14 @@ app.get('/etudiants', async (req, res) => {
 
 // Pour ajouter un étudiant
 app.post('/etudiants', async (req, res) => {
+  console.log(req)
   try {
-      const nouvelEtudiant = new Etudiant({ nom: req.body.nom, prenom: req.body.prenom, classe: req.body.classe });
+    console.log('Requête POST reçue pour ajouter un étudiant', req.body);
+    const nouvelEtudiant = new Etudiant({
+      nom: req.body.nom,
+      prenom: req.body.prenom,
+      classe: req.body.classe
+    });
       console.log("nouvel etudiant :",nouvelEtudiant);
       const etudiantEnregistre = await nouvelEtudiant.save();
       res.status(201).json(etudiantEnregistre);

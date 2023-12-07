@@ -25,9 +25,15 @@ export class EtudiantsComponent implements OnInit {
     });
   }
   ajouterEtudiant(): void {
-    this.etudiantService.addEtudiant(this.nouvelEtudiant).subscribe((etudiantAjoute: any) => {
+    this.etudiantService.addEtudiant(this.nouvelEtudiant).subscribe({
+      next: etudiantAjoute => {
+        console.log('Étudiant ajouté avec succès', etudiantAjoute);
         this.etudiants.push(etudiantAjoute);
-        this.nouvelEtudiant = {};  // met a zero le formulaire après l'ajout
+        this.nouvelEtudiant = {};  // Met à zéro le formulaire après l'ajout
+      },
+      error: error => {
+        console.error('Erreur lors de l\'ajout d\'un étudiant', error);
+      }
     });
   }
- }
+}
